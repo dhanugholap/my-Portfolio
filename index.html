@@ -1,0 +1,617 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My-Portfolio</title>
+  <link rel="shortcut icon" href="sachin-logo.jpg"> 
+  <link rel="shortcut icon" href="./Images/react-1-logo.png" type="image/x-icon">
+  <!-- <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+
+  <style>
+    @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,800;1,200;1,300&display=swap');
+
+    :root {
+      --yellow: #f9ca24;
+    }
+
+    * {
+      font-family: 'nunito', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      outline: none;
+      border: none;
+      text-transform: capitalize;
+      transform: all .2s linear;
+    }
+
+    *::selection {
+      background: var(--yellow);
+      color: #333;
+    }
+
+    html {
+      font-size: 62.5%;
+      overflow: hidden;
+    }
+
+    html::-webkit-scrollbar {
+      width: 1.4rem;
+    }
+
+    html::-webkit-scrollbar-track {
+      background: #222;
+    }
+
+    html::-webkit-scrollbar-thumb {
+      background: var(--yellow);
+    }
+
+    body {
+      background-color: #333;
+      overflow-x: hidden;
+      padding-left: 35rem;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 1rem;
+    }
+
+    html {
+      font-size: 62.5%;
+      overflow: hidden;
+    }
+
+    .heading {
+      margin: 0 6rem;
+      font-size: 4rem;
+      padding: 1rem;
+      color: #fff;
+    }
+
+    .heading span {
+      color: var(--yellow);
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      height: 100%;
+      width: 35rem;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      flex-flow: column;
+      text-align: center;
+    }
+
+    header .user img {
+      height: 20rem;
+      width: 20rem;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: .7rem solid var(--yellow);
+
+    }
+
+    header .user .name {
+      font-size: 3.5rem;
+      color: #fff;
+    }
+
+    header .user .post {
+      font-size: 2rem;
+      color: #eee;
+    }
+
+    header .navbar {
+      width: 100%;
+    }
+
+    header .navbar ul {
+      list-style: none;
+      padding: 1rem 3rem;
+    }
+
+    header .navbar ul li a {
+      display: block;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      background: #333;
+      color: #fff;
+      font-size: 2rem;
+      border-radius: 5rem;
+    }
+
+    header .navbar ul li a:hover {
+      background-color: var(--yellow);
+    }
+
+    #menu {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      background: #333;
+      color: #fff;
+      cursor: pointer;
+      font-size: 2.5rem;
+      padding: 1rem 1.5rem;
+      z-index: 100;
+      display: none;
+    }
+
+    .Home {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+      padding: 0 15rem;
+
+    }
+
+    .Home h1 span {
+      color: var(--yellow);
+    }
+
+    .Home h3 {
+      font-size: 2.5rem;
+      color: #fff;
+    }
+
+    .Home h1 {
+      font-size: 5rem;
+      color: #fff;
+    }
+
+    .Home p {
+      font-size: 2rem;
+      color: #fff;
+      padding: 1rem 0;
+    }
+
+    .instagram {
+      color: red;
+    }
+
+    .About .row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+    }
+
+    .About .row .info {
+      flex: 1 1 48rem;
+      padding: 2rem 1rem;
+      padding-left: 6rem;
+    }
+
+    .About .row .counter {
+      flex: 1 1 48rem;
+      padding: 2rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .About .row .counter .box {
+      width: 20rem;
+      background: #222;
+      text-align: center;
+      margin: 2rem;
+      padding: 2rem;
+    }
+
+    .About .row .counter .box span {
+      font-size: 4rem;
+      color: var(--yellow);
+    }
+
+    .About .row .counter .box h3 {
+      font-size: 4rem;
+      color: white;
+    }
+
+    .About .row .info h3 {
+      font-size: 2rem;
+      color: var(--yellow);
+      padding: 1rem 0;
+      font-weight: normal;
+    }
+
+    .About .row .info h3 span {
+      color: #eee;
+      padding: 0.5rem;
+    }
+
+    .education .box-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+      padding-left: 3rem;
+    }
+
+    .education .box-container .box {
+      width: 27rem;
+      margin: 4rem 1rem;
+      padding-left: 4rem;
+      border-left: .2rem solid #fff;
+      position: relative;
+    }
+
+    .education .box-container .box span {
+      font-size: 1.3rem;
+      background: #222;
+      color: #fff;
+      border-radius: 5rem;
+    }
+
+    .Projet .box-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 2rem 0;
+    }
+
+    .Projet .box-container .box {
+      height: 20rem;
+      width: 26rem;
+      border-radius: 1rem;
+      margin: 2rem;
+      overflow: hidden;
+      color: pointer;
+    }
+
+    .Projet .box-container .box img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+
+    }
+
+    .Projet .box-container .box:hover img {
+      transform: scale(1.2);
+    }
+
+    .row {
+      padding: 50px;
+      border-top: .1rem solid #fff4;
+    }
+
+    .content .title {
+      color: red;
+      font-size: 30px;
+      font-weight: bold;
+      font-style: normal;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .info {
+      color: yellowgreen;
+      padding: 30px;
+      font-size: 15px;
+    }
+
+    .info a {
+      text-decoration: none;
+      border-style: none;
+      color: yellowgreen;
+    }
+
+    .info:hover {
+      font-size: 20px;
+    }
+
+    .education .row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+    }
+
+    .education .row .info {
+      flex: 1 1 48rem;
+      padding: 2rem 1rem;
+      padding-left: 6rem;
+    }
+
+    .education .row .info h3 {
+      font-size: 2rem;
+      color: var(--yellow);
+      padding: 1rem 0;
+      font-weight: normal;
+    }
+
+    .education .row .info h3 span {
+      color: #eee;
+      padding: 0.5rem;
+    }
+
+
+    @media (max-width: 400px) and (max-width: 700px) {
+      html {
+        font-size: 55%;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        height: 10%;
+        width: 100%;
+        background: #1a1a1a;
+        display: flex;
+        align-items: center;
+        flex-flow: row;
+        text-align: center;
+      }
+
+      header .user img {
+        height: 8rem;
+        width: 8rem;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-top: 1rem;
+        border: .3rem solid var(--yellow);
+
+      }
+
+      header .user .name {
+        font-size: 5px;
+        color: #fff;
+      }
+
+      header .user .post {
+        font-size: 10px;
+        color: #eee;
+      }
+
+      header .navbar {
+        width: 30px;
+      }
+
+      header .navbar ul {
+        list-style: none;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      header .navbar ul li a {
+        display: block;
+        margin: 1.5rem 0;
+        background: #333;
+        color: #fff;
+        font-size: 1rem;
+        border-radius: 5rem;
+      }
+
+      header .navbar ul li a:hover {
+        background-color: var(--yellow);
+      }
+
+      body {
+        padding-top: 5rem;
+        padding-left: 30px;
+      }
+
+      .Home {
+        flex-flow: column;
+        padding: 0 7rem;
+      }
+
+      .Home h1 {
+        font-size: 5rem;
+        display: flex;
+      }
+
+      header .post {
+        display: none;
+      }
+
+      .user h3 {
+        display: none;
+      }
+
+      .About .row .info {
+
+        padding-left: 0rem;
+      }
+
+      .education .row .info {
+        padding-left: 0rem;
+      }
+
+      .Projet .row .info {
+        padding-left: 0rem;
+      }
+
+      .Contact .row .info {
+        padding-left: 0rem;
+        padding: -6rem;
+      }
+
+      .info:hover {
+        font-size: 15px;
+      }
+
+      .dhanu01112 {
+        height: 100px;
+        width: 100px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="user">
+      <img src="./Images/dhanu 28.jpg" alt="Dhananjay">
+      <h3 class="name">Dhananjay Gholap</h3>
+      <p class="post">Software-Developer</p>
+    </div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#About">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#Projet">Project</a>
+        </li>
+        <li><a href="#Contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="fas fa-bars" id="menu"></div>
+  <section class="Home" id="Home">
+    <h3>HI THERE !</h3>
+    <h1>I'M <span>Dhananjay Gholap</span></h1>
+    <p>Software-Developer </p>
+  </section>
+  <section class="About" id="About">
+    <marquee behavior="alternate" direction="" scrollamount="20">
+      <h1 class="heading"><span>About</span>Me</h1>
+    </marquee>
+    <div class="row">
+      <div class="info">
+        <h3><span>Name:</span>Dhananjay Gholap</h3>
+        <h3><span>Age:</span>21</h3>
+        <h3><span>Qualification:</span>BCA</h3>
+        <h3><span>Language:</span>English/Hindi/Marathi</h3>
+      </div>
+
+    </div>
+  </section>
+  <section class="education" id="education">
+    <marquee behavior="alternate" direction="" scrollamount="20">
+      <h1 class="heading">My <span>Education</span></h1>
+    </marquee>
+    <div class="row">
+      <div class="info">
+        <h3><span>Digree:</span>Bachelor of Computer Applications</h3>
+        <h3><span>Passout:</span>2025</h3>
+        <h3><span>Qualification:</span>BCA</h3>
+        <h3><span>12Th-Passout:</span>2020</h3>
+        <h3><span>12Th-Marks:</span>86.30%</h3>
+        <h3><span>10Th-Passout:</span>2018</h3>
+        <h3><span>10Th-Marks:</span>72.80%</h3>
+        <h3><span>College-Name:</span>Tulsi College of Computer Science and Information Technology, Beed, Maharashtra
+        </h3>
+      </div>
+    </div>
+  </section>
+  <section class="Project" id="Projet">
+    <marquee behavior="alternate" direction="" scrollamount="20">
+      <h1 class="heading"><span>My</span>Projets</h1>
+    </marquee>
+    <div class="row">
+
+    </div>
+    <div class="box-container" style="margin-top: -100px;">
+      <div class="box">
+        <a style="text-align: center; align-items: center;"
+          href="https://dhanu888.github.io/myportfolio/public/project/Technosignia.html"> <img
+            style="height: 300px; width: 300px; text-align: center; align-items: center; border-radius:30px; border: 6px double blue; margin-top:110px; margin-left: 50px; "
+            src="./Images/technosignia.jpg" alt="React App"></a>
+
+      </div>
+      <h3
+        style="font-size: 18px; margin: 10px 0 5px; text-align: center; color: #fff; margin-top: auto; margin-left:-200px; margin-block-start: 250px; ">
+      </h3>
+      <pre style="  font-size: 14px;
+          text-align: center;
+          color: rgb(44, 39, 150); margin-top: -200px; margin-left:-100px; margin-block-start: 300px;"></pre>
+      <!-- <div class="box">
+          <a href="./public/healet-html/index.html"><img src="public/healet-html/images/z4.jpg" alt="sachin"></a>
+        </div>
+      </div> -->
+
+  </section>
+  <section class="Contact" id="Contact">
+    <marquee behavior="alternate" direction="" scrollamount="20">
+      <h1 class="heading"> <span>Contact</span>Me</h1>
+    </marquee>
+    <div class="row">
+      <div class="content">
+        <h3 class="title">Contact info</h3>
+        <div class="info">
+          <h3 style="color:chartreuse; padding: 8px;"><i class='bx bxl-gmail'></i>dhanugholap007@gmail.com</h3>
+          <a style="color:rgb(88, 250, 0); " href="../My-resume.pdf" alt="My Resume">
+            <h3><i style="padding: 5px; margin: 5px;" class="bi bi-file-earmark-person-fill"><span>Resume</span></i></h3>
+          </a>
+          <h3 style="color:rgb(88, 250, 0); padding: 7px;"><i class="fas fa-phone"></i>+91-8805451745</h3>
+          <!-- <h3><i class="fas fa-phone"></i>+91-9022040288</h3> -->
+          <a href="https://www.instagram.com/30.dhanu__/profilecard/?igsh=MTd1ank3azdlNjJkNw==">
+            <h3 style="color:rgb(88, 250, 0);padding: 2px; margin:7px;"><span
+                class="bi bi-instagram"></span>30.dhanu__</h3>
+          </a>
+          <a href="https://www.linkedin.com/in/dhanu07/">
+            <h3 ><i style="font-size: 25px; color: greenyellow; margin-top: 2px; margin-left: 5px;" class='bx bxl-linkedin-square'></i>Dhananjay Gholap</h3>
+          </a>
+          <a href="gh repo clone dhanugholap/InstituteTech"></a>
+          <!-- <h3><span  <i class='bx bxl-github'></i>>Dhananjay Gholap</span></h3> -->
+          <h3 style="color:rgb(88, 250, 0); padding: 5px; margin: 5px;"><i class="fas fa-map-marker-alt"></i>
+            (1)1Maharashtra, Beed - 431122</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+      (function () {
+        function refreshCSS() {
+          var sheets = [].slice.call(document.getElementsByTagName("link"));
+          var head = document.getElementsByTagName("head")[0];
+          for (var i = 0; i < sheets.length; ++i) {
+            var elem = sheets[i];
+            var parent = elem.parentElement || head;
+            parent.removeChild(elem);
+            var rel = elem.rel;
+            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+              var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+            }
+            parent.appendChild(elem);
+          }
+        }
+        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+        var address = protocol + window.location.host + window.location.pathname + '/ws';
+        var socket = new WebSocket(address);
+        socket.onmessage = function (msg) {
+          if (msg.data == 'reload') window.location.reload();
+          else if (msg.data == 'refreshcss') refreshCSS();
+        };
+        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+          console.log('Live reload enabled.');
+          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+        }
+      })();
+    }
+    else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+    // ]]>
+  </script>
+</body>
+
+</html>
